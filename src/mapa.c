@@ -47,6 +47,32 @@ int carregarMapa(Mapa *m, const char *caminho_arquivo) {
     fclose(arquivo);
     return 1;
 }
+//percorrer a matriz que ja ta na memoria e desenhar linha por linha no terminal
+void exibirMapa(const Mapa *m) {
 
-//falta criar exibirMapa e liberarMapa
+    //verificacao de seguranca
+    if (m == NULL || m->matriz == NULL) return;
 
+    //imprimindo o mapa linha por linha
+    for (int i = 0; i < m->qt_linhas; i++) {
+        printf("%s\n", m->matriz[i]);
+    }
+}
+
+//garantindo nenhum vazamento de memoria
+void liberarMapa(Mapa *m) {
+
+    //verificacao de seguranca
+    if (m == NULL || m->matriz == NULL) return;
+
+    //liberando primeiro linha por linha p depois liberar o vetor principal
+    for (int i = 0; i < m->qt_linhas - 1; i++) {
+        free(m->matriz[i]);
+    }
+    free(m->matriz);
+
+    //zerar o ponteiro e as dimensoes por seguranca
+    m->matriz = NULL;
+    m->qt_linhas = 0;
+    m->qt_colunas = 0;
+}
