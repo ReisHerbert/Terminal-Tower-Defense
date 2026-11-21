@@ -4,5 +4,7 @@ project(Terminal_Tower_Defense C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(Terminal_Tower_Defense
-        main.c
+        src/main.c
+        src/mapa.c
+        src/mapa.h
 )
