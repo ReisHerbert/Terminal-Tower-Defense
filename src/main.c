@@ -7,7 +7,13 @@ int main() {
     Mapa mapa;  //criar a variavel que vai guardar o mapa
 
     int opcao;
-    printf("\nEscolha o mapa (1 para Mapa 1, 2 para Mapa 2, 3 para Mapa 3): ");
+    printf("Bem-vindo ao Tower Defense!\n");
+    printf(">digite 1 para escolher o mapa 1\n");
+    printf(">digite 2 para escolher o mapa 2\n");
+    printf(">digite 3 para escolher o mapa 3\n");
+    printf(">digite 4 para escolher o mapa 4\n");
+    printf(">digite 5 para escolher o mapa 5\n");
+    printf("Escolha o mapa: \n");
     scanf("%d", &opcao);
 
     char caminho[50];
